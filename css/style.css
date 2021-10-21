@@ -1,0 +1,632 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Noto+Sans+JP:wght@100;300;500;700&display=swap");
+/* font-family: 'Lato', sans-serif;
+font-family: 'Noto Sans JP', sans-serif; */
+
+body {
+  background-color: gray;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.u-full-width {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Separator */
+
+.separator {
+  position: relative;
+  margin-bottom: 1.7rem;
+  padding-bottom: 1.7rem;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: inherit;
+}
+.separator:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 86px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  transform: translateX(-50%);
+}
+
+.separator-inverted {
+  position: relative;
+  margin-bottom: 1.7rem;
+  padding-bottom: 1.7rem;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: inherit;
+}
+.separator-inverted:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 86px;
+  height: 2px;
+  background-color: #222;
+  transform: translateX(-50%);
+}
+
+/* Navigation */
+.menu-btn {
+  position: fixed;
+  z-index: 3;
+  left: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: white;
+  transition: all 0.5s ease-out;
+}
+
+.menu-btn.close {
+  transform: rotate(180deg);
+}
+
+.menu-btn.close .btn-line:nth-child(1) {
+  /*Line 1 - Rotate*/
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.close .btn-line:nth-child(2) {
+  /*Line 2 - Rotate*/
+  opacity: 0;
+}
+.menu-btn.close .btn-line:nth-child(3) {
+  /*Line 3 - Rotate*/
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.menu {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  min-width: 200px;
+  width: 30%;
+  opacity: 0.9;
+  visibility: hidden;
+}
+
+.menu.show {
+  visibility: visible;
+}
+
+.menu-nav {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 60%;
+  height: 100vh;
+  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+  background: black;
+  list-style: none;
+  transform: translate(-100%, 0);
+  transition: all 0.5s ease-out;
+}
+
+.menu-nav.show {
+  transform: translate(0, 0);
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-family: "Lato";
+  font-size: 1.2rem;
+}
+
+.nav-item a:hover {
+  font-size: 1.23rem;
+}
+
+.nav-item {
+  padding: 0.7rem 0;
+}
+
+/* header Section*/
+.header {
+  min-height: 100vh;
+  font-family: "Lato";
+  color: white;
+  background: rgb(94, 97, 128);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 97, 128, 1) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media-icons ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media-icons li {
+  list-style-type: none;
+  margin: 5px;
+  font-size: 2rem;
+}
+
+.social-media-icons a {
+  color: white;
+}
+
+/*used arrows from https://codepen.io/pullagantiramachandra/pen/XxPZZE */
+
+.arrows-down {
+  width: 6vmin;
+  height: 6vmin;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: rotate(135deg);
+}
+
+.arrows-down::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-width: 0.8vmin 0.8vmin 0 0;
+  border-style: solid;
+  border-color: #fafafa;
+  transition: 0.2s ease;
+  display: block;
+  transform-origin: 100% 0;
+}
+
+.arrows-down::after {
+  content: "";
+  float: left;
+  position: relative;
+  top: -90%;
+  width: 100%;
+  height: 100%;
+  border-width: 0 0.8vmin 0 0;
+  border-style: solid;
+  border-color: #fafafa;
+  transform-origin: 100% 0;
+  transition: 0.2s ease;
+}
+
+.arrows-down:hover::after {
+  transform: rotate(45deg);
+  border-color: #05d4f8;
+  height: 120%;
+}
+
+.arrows-down:hover::before {
+  border-color: #05d4f8;
+  transform: scale(0.8);
+}
+
+/* Introduction Section */
+.introduction {
+  background: whitesmoke;
+  font-family: "Lato";
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 50vh;
+}
+
+.introduction h4 {
+  text-align: center;
+}
+
+/* Github Section */
+
+.github {
+  background: rgb(94, 97, 128);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 97, 128, 1) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* used button from https://cssbuttons.io/detail/namecho/slippery-moth-23 */
+.github a,
+.github a::after {
+  font-family: "Lato";
+  font-weight: bold;
+  padding: 3rem 2%;
+  font-size: 1.6rem;
+  background: linear-gradient(45deg, transparent 5%, #ffffff 5%);
+  border: 0;
+  color: rgb(0, 0, 0);
+  letter-spacing: 3px;
+  line-height: 1;
+  box-shadow: 6px 0px 0px #00e6f6;
+  outline: transparent;
+  position: relative;
+}
+
+.github a {
+  font-family: "Lato";
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.github a::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  content: "Find me on GitHub";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(94, 97, 128, 1) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  text-shadow: -3px -3px 0px #05d4f8, 3px 3px 0px #00e6f6;
+  clip-path: var(--slice-0);
+}
+
+.github a:hover::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+  animation-iteration-count: 3;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+/*
+.button.inverted {
+  padding: 2rem 2rem;
+  color: white;
+  height: auto;
+  border: 3px solid white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-family: "Lato";
+}
+
+.button.inverted:hover {
+  background: white;
+  color: #222;
+}
+*/
+
+/* Courses Section */
+
+.courses {
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 60vh;
+  font-family: "Lato";
+}
+
+.courses h3 {
+  font-size: 1.6rem;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 40%;
+}
+
+th,
+td {
+  font-size: 1.2rem;
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background: rgb(94, 97, 128);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 97, 128, 1) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+  opacity: 0.7;
+}
+
+.progress {
+  background: rgb(47, 48, 59);
+  width: 50vw;
+  height: 20px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar span {
+  font-weight: bold;
+  font-family: "Lato";
+}
+
+/* Work Section */
+.work {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: rgb(94, 97, 128);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 97, 128, 1) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  min-height: 90vh;
+}
+
+.progr-lang {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.work h3 {
+  font-family: "Lato";
+  font-size: 1.6rem;
+  color: white;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.work h4 {
+  font-family: "Lato";
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.progr-lang h4 {
+  margin-right: 2rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects img {
+  border-radius: 7px;
+  width: 35vh;
+  height: 35vh;
+  border: 3px #fff solid;
+  margin: 0.5rem 1rem;
+}
+
+.projects img:hover {
+  opacity: 0.5;
+  box-shadow: 5px 5px 5px #f2f2f26b, -5px -5px 10px #f2f2f26b;
+  transition: all 0.2s ease-out;
+}
+
+.btn-dark {
+  border-radius: 7px;
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  background: rgb(94, 97, 128);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 97, 128, 1) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border: 3px solid white;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-family: "Lato";
+}
+
+.btn-dark:hover {
+  background: white;
+  border: 3px #fff solid;
+  color: #222;
+  box-shadow: 5px 5px 5px #f2f2f26b, -5px -5px 10px #f2f2f26b;
+  transition: all 0.2s ease-out;
+}
+
+/*Social Media and Hobbies Section */
+.hobbies {
+  min-height: 100vh;
+  background: whitesmoke;
+}
+
+.hobbies h3 {
+  font-family: "Lato";
+  font-size: 1.6rem;
+  color: black;
+  text-align: center;
+  padding: 1.2rem 0;
+}
+
+.hobbies h4 {
+  font-family: "Lato";
+  font-size: 1.3rem;
+  color: black;
+  margin: 2rem 0;
+}
+
+.hobbies-main-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-files {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-files {
+  min-width: 60vw;
+}
+
+.video-file {
+  min-width: 60vw;
+}
+
+.hobbies .list-group {
+  width: 20vw;
+}
+
+.hobbies .list-group .list-group-item {
+  background: whitesmoke !important;
+}
+
+@media only screen and (max-height: 630px) {
+  .arrows-down {
+    top: 10vh;
+    width: 8vmin;
+    height: 8vmin;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hobbies .list-group {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .hobbies .list-group {
+    width: 100vw;
+  }
+}
